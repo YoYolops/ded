@@ -16,11 +16,12 @@
     <div class="topInfo">
         <h1>{name}</h1>
         <div class="identificador">
-            <p>{`${rarity} - `}</p>
-            <p>{id}</p>
+            <p>{`${rarity} - ${id}`}</p>
         </div>
     </div>
-    <div class="imagem" style={`background-image: url(${imageUrl})`} />
+    <div class="imagem">
+        <img src={imageUrl} alt="" />
+    </div>
     <div class="cardDescription">
         <p>{description}</p>
     </div>
@@ -33,18 +34,22 @@
 </main>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
 
     * {
         box-sizing: border-box;
         display: flex;
     }
 
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: right;
+    }
+
     main {
-        height: 300px;
-        width: 200px;
+        height: 400px;
+        width: 280px;
         border: 2px solid black;
         border-radius: 5px;
         display:flex;
@@ -53,7 +58,9 @@
 
     h1 {
         font-size: 13px;
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Tangerine', cursive;
+        font-size: 20px;
+        font-weight: bold;
     }
 
     .topInfo {
@@ -62,6 +69,7 @@
         height: 12%;
         align-items: center;
         justify-content: space-between;
+        padding: 0px 5px;
     }
 
     .identificador {
@@ -69,21 +77,22 @@
     }
 
     .identificador p {
-        font-weight: bold;
+        font-family: 'Cairo';
+        font-weight: bolder;
         color: #191919;
     }
 
     .imagem {
         height: 40%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        overflow: hidden;
     }
 
     .cardDescription {
-        font-size: 13px;
+        font-size: 15px;
         height: 35%;
-        font-family: 'Josefin Sans', sans-serif;
         overflow-y: auto;
+        font-family: 'Josefin Sans', sans-serif;
+        padding: 2px;
     }
 
     .bottomInfo {
@@ -94,9 +103,9 @@
     }
 
     .bottomInfo p {
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: bolder;
         font-family: 'Josefin Sans', sans-serif;
-        font-weight: bold;
     }
 
 </style>
