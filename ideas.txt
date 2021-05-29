@@ -1,0 +1,14 @@
+{
+    items: {
+        formato: carta,
+        infoDaCarta: {
+            titulo: texto,
+            ataque: numero,
+            defesa: numero,
+            descrição: texto,
+            imagem: any,
+            consumivel: boolean,
+            peso: numero,
+        }
+    }
+}
