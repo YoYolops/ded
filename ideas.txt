@@ -13,3 +13,7 @@
         }
     }
 }
+
+// Funcionalidade de escolher o que o seu personagem vai ficar fazendo enquanto você estiver fora do jogo
+
+// fazer o type da carta ser clicavel, mostrando informações extras

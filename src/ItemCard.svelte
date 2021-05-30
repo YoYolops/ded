@@ -5,8 +5,8 @@
     export let id: number;
     export let imageUrl: string;
     export let description: string;
-    export let atk: number;
-    export let def: number;
+    export let atk: string;
+    export let def: string;
     export let weight: number;
     export let type: string;
 
@@ -23,7 +23,7 @@
         <img src={imageUrl} alt="" />
     </div>
     <div class="cardDescription">
-        <p>{description}</p>
+        {@html description}
     </div>
     <div class="bottomInfo">
         <p>Atk: {atk}</p>
@@ -40,10 +40,14 @@
         display: flex;
     }
 
+    p {
+        display: block;
+    }
+
     img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         align-self: right;
     }
 
@@ -93,6 +97,7 @@
         overflow-y: auto;
         font-family: 'Josefin Sans', sans-serif;
         padding: 2px;
+        flex-direction: column;
     }
 
     .bottomInfo {

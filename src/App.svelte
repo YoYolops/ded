@@ -4,9 +4,6 @@
 
 </script>
 
-
-<div class="teste" ></div>
-
 {#each ItensList as item}
 	<ItemCard 
 		id={item.id}
