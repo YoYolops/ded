@@ -7,6 +7,7 @@
     import { fade, fly } from 'svelte/transition';
 
     import itensList from '../gameData/ItensData';
+    import spellsData from '../gameData/spells.json';
     import CardSlot from '../generalComponents/CardSlot.svelte';
 
     let visible: boolean = true; 
@@ -22,7 +23,9 @@
         </div>
     {:else}
         <div in:fly={{x: -1000, duration: 500}} out:fade={{duration: 100}} class="feiticos" style={`display: ${!visible ? 'flex' : 'none'}`} >
-            
+            {#each spellsData.spellsData as spell}
+                <CardSlot cardId={spell.id} backColor="#93b8bf"/>
+            {/each}
         </div>
     {/if}
 </main>

@@ -1,22 +1,15 @@
 <script lang="ts">
-
     export let name: string;
-    export let rarity: string;
-    export let id: number;
+    export let level: string;
     export let imageUrl: string;
     export let description: string;
-    export let atk: string;
-    export let def: string;
-    export let weight: number;
-    export let type: string;
-
 </script>
 
 <main>
     <div class="topInfo">
         <h1>{name}</h1>
         <div class="identificador">
-            <p>{`${rarity} - ${id}`}</p>
+            <p>{`lv ${level}`}</p>
         </div>
     </div>
     <div class="imagem">
@@ -26,15 +19,11 @@
         {@html description}
     </div>
     <div class="bottomInfo">
-        <p>Atk: {atk}</p>
-        <p>Def: {def}</p>
-        <p>Kg: {weight}</p>
-        <p>{type}</p>
+        <p></p>
     </div>
 </main>
 
 <style>
-
     * {
         box-sizing: border-box;
         display: flex;
@@ -112,5 +101,4 @@
         font-weight: bolder;
         font-family: 'Josefin Sans', sans-serif;
     }
-
 </style>
