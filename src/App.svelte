@@ -1,10 +1,11 @@
 <script lang="ts">
 	import ItemCard from "./ItemCard.svelte";
-	import ItensList from "./gameData/ItensData"
+	import ItensList from "./gameData/ItensData";
+	import Inventory from "./playerTools/Inventory.svelte";
 
 </script>
 
-{#each ItensList as item}
+<!-- {#each ItensList as item}
 	<ItemCard 
 		id={item.id}
 		name={item.name}
@@ -16,10 +17,10 @@
 		weight={item.weight}
 		type={item.type}
 	/>
-{/each}
+{/each} -->
+
+<Inventory />
 
 <style>
-	.teste {
-		background-image: url("/Catnip Amulet.png");
-	}
+
 </style>
