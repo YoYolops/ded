@@ -33,5 +33,6 @@
 
     .lifeBar {
         height: inherit;
+        background-color: #35941e;
     }
 </style>
