@@ -5,12 +5,12 @@
 
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
-    import { onMount } from 'svelte';
 
     import itensList from '../gameData/ItensData';
     import spellsData from '../gameData/spells.json';
     import CardSlot from '../generalComponents/CardSlot.svelte';
     import SuitedUp from '../generalComponents/SuitedUp.svelte';
+    import Statistics from '../generalComponents/Statistics.svelte';
 
     let visible: boolean = true;
     let showEmptySlots = true;
@@ -27,8 +27,9 @@
 
 <main>
     
-    <section class="usingCards">
+    <section class="characterManagement">
         <SuitedUp />
+        <Statistics />
     </section>
 
     <section class="storagedCards" >
@@ -65,7 +66,7 @@
         height: 99vh;
     }
 
-    .usingCards {
+    .characterManagement {
         width: 50%;
         position: relative;
         top: 0;
