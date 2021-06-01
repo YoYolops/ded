@@ -66,10 +66,9 @@
 
     .statistics div {
         margin: 5px;
-        padding: 5px;
-    }
-
-    .characterSecondaryStatistics {
+        margin-bottom: 0px;
+        padding: 2px;
         overflow: auto;
     }
+
 </style>

@@ -18,9 +18,12 @@
 		type={item.type}
 	/>
 {/each} -->
-
-<Inventory />
+<main>
+	<Inventory />
+</main>
 
 <style>
-
+	main {
+		overflow-y: hidden;
+	}
 </style>

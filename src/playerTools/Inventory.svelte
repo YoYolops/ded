@@ -11,6 +11,7 @@
     import CardSlot from '../generalComponents/CardSlot.svelte';
     import SuitedUp from '../generalComponents/SuitedUp.svelte';
     import Statistics from '../generalComponents/Statistics.svelte';
+    import LifeBar from '../generalComponents/LifeBar.svelte';
 
     let visible: boolean = true;
     let showEmptySlots = true;
@@ -26,9 +27,9 @@
 </script>
 
 <main>
-    
     <section class="characterManagement">
         <SuitedUp />
+        <LifeBar currentLife=8 totalLife=800 />
         <Statistics />
     </section>
 
@@ -58,12 +59,13 @@
         display:flex;
         flex-direction: row;
         width: 100%;
+        height: 100vh;
     }
 
     .storagedCards {
         width: 50%;
         overflow: auto;
-        height: 99vh;
+        height: 100vh;
     }
 
     .characterManagement {

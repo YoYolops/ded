@@ -13,8 +13,7 @@
 
 </script>
 
-<main class="wearingContainer">
-    <h1>Using</h1>
+<main>
     <div>
         {#each wearingItems as wearingItem, index}
             <div class="suitedUpItemBlock">
@@ -32,22 +31,14 @@
         display:flex;
         flex-direction: column;
         width: 100%;
-        height: 99vh;
-        overflow: hidden;
-    }
-
-    h1 {
-        font-size: 15px;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        height: 69vh;
     }
 
     p {
         margin: 10px
-    }
-
-    .wearingContainer {
-        display: flex;
-        flex-direction: column;
-        height: 69vh;
     }
 
     .suitedUpItemBlock {

@@ -4,19 +4,27 @@
 
 </script>
 
-<main class="lifeBarContainer">
-    <div class="lifeBar" style="width: {Math.floor((100/totalLife)*currentLife)}%" />
+<main>
+    <div class="lifeBarContainer">
+        <div class="lifeBar" style="width: {Math.floor((100/totalLife)*currentLife)}%" />
+    </div>
     <p>{`${currentLife}/${totalLife}`}</p>
 </main>
 
 <style>
+    main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     p {
         margin-left: 5px;
     }
 
     .lifeBarContainer {
-        width: 100%;
-        height: 20px;
+        width: 85%;
+        height: 1vh;
         background-color: #808080;
         display: flex;
         align-items: center;
@@ -25,6 +33,5 @@
 
     .lifeBar {
         height: inherit;
-        background-color: #35941e;
     }
 </style>
