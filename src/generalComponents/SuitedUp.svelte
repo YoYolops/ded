@@ -8,16 +8,28 @@
         "gameMedia/icos/greaves.svg",
         "gameMedia/icos/cloak.svg",
         "gameMedia/icos/sword.svg",
-        "gameMedia/icos/sword.svg"
+        "gameMedia/icos/sword.svg",
+        "gameMedia/icos/ring.svg"
     ]
+    const acessories: Array<object | null> = [null, null, null, null, null, null]
 
 </script>
 
 <main>
-    <div>
+    <div class="mainWearableItems">
         {#each wearingItems as wearingItem, index}
             <div class="suitedUpItemBlock">
                 <CardSlot width="56px" height="80px" backColor="#adadad" svgUrl={icosPath[index]} />
+                <p class="itemEffects">
+                    efeito nenhum
+                </p>
+            </div>
+        {/each}
+    </div>
+    <div class="otherWearableItems">
+        {#each acessories as acessorie}
+            <div class="suitedUpItemBlock">
+                <CardSlot width="56px" height="80px" backColor="#adadad" svgUrl={icosPath[icosPath.length - 1]} />
                 <p class="itemEffects">
                     efeito nenhum
                 </p>
@@ -29,12 +41,11 @@
 <style>
     main {
         display:flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
         overflow: auto;
-        display: flex;
-        flex-direction: column;
         height: 69vh;
+        justify-content: space-between;
     }
 
     p {
@@ -44,6 +55,16 @@
     .suitedUpItemBlock {
         display:flex;
         flex-direction: row;
+    }
+
+    .mainWearableItems {
+        width: 50%;
+    }
+
+    .otherWearableItems {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
     }
 
 
