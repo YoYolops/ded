@@ -9,7 +9,7 @@
         <p>Character Capacity: </p>
         <p>Armor: </p>
         <p>Initiative: </p>
-        <p></p>
+        <p>Gold: </p>
     </div>
     <div class="characterMainStatistics">
         <p>Força: </p>

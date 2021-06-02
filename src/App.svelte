@@ -2,6 +2,7 @@
 	import ItemCard from "./cards/ItemCard.svelte";
 	import ItensList from "./gameData/ItensData";
 	import Inventory from "./playerTools/Inventory.svelte";
+	import UserInteractionManager from "./userFirstInteractionSystem/UserInteractionManager.svelte"
 
 </script>
 
@@ -19,7 +20,7 @@
 	/>
 {/each} -->
 <main>
-	<Inventory />
+	<UserInteractionManager />
 </main>
 
 <style>
