@@ -1,5 +1,9 @@
 <script lang="ts">
 
+    function login() {
+        
+    }
+
 </script>
 
 <main>
