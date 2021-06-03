@@ -1,3 +1,7 @@
+<!-- Esse componente cria um novo personagem
+    Vale lembrar que o jogo não salva usuários, mas sim personagens
+-->
+
 <script lang="ts">
     interface AttributesData {
         forca: number,
@@ -30,7 +34,7 @@
 </script>
 
 <main>
-    Register
+    {registerStage}
 </main>
 
 <style>
