@@ -55,7 +55,7 @@
         padding: 4px;
         margin-bottom: 10px;
         border-radius: 5px;
-        width: 80%;
+        width: 75%;
         color: #aaa
     }
 
@@ -70,6 +70,7 @@
         background: transparent;
         border: 2px solid rgb(68, 68, 68);
         color: #aaa;
+        cursor: pointer;
     }
 
     button:active {

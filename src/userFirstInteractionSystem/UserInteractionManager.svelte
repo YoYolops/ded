@@ -1,7 +1,7 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
     import Login from './Login.svelte'
-    import Register from './Register.svelte'
+    import Register from './ResgisterCharacter.svelte'
 
     $: mode = 'login'
     $: firstClick = false
@@ -25,7 +25,7 @@
                         <Register />
                     </div>
                 {/if}
-            <button on:click={switchMode}>
+            <button class="switcher" on:click={switchMode}>
                 {mode === 'login' ? 'Ir Para Cadastro' : 'Ir Para Login'}
             </button>
         </div>
@@ -67,8 +67,8 @@
         display: flex;
         flex-direction: column;
         border-radius: 15px;
-        height: 60vh;
-        width: 40vw;
+        height: 80vh;
+        width: 60vw;
         background: rgb(110,18,18);
         background: linear-gradient(130deg, rgba(110,18,18,0.8) 0%, rgba(28,0,0,0.8) 72%);
         z-index: 5;
@@ -93,6 +93,23 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
+    }
+
+    .switcher {
+        background: transparent;
+        font-family: 'Cinzel', serif;
+        font-size: 15px;
+        -webkit-text-stroke-width: .4px; /* largura da borda */
+        -webkit-text-stroke-color: rgb(68, 68, 68); /* cor da borda */
+        background: transparent;
+        border: none;
+        border-top: 2px solid rgb(68, 68, 68);
+        color: #aaa;
+        cursor: pointer;
+    }
+
+    .switcher:active {
+        background: transparent
     }
 
     .initialButton {
