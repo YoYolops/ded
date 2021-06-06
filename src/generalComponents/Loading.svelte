@@ -7,6 +7,7 @@
 </script>
 
 <main in:fly={{y: -1000, duration: 600}} out:fly={{y: -1000 ,duration: 900}}>
+    <h1>Dungyô</h1>
     <Chasing />
     <div class="barContainer">
         <div class="barFill" style="width: {loadingWidth}%;" />
@@ -15,6 +16,21 @@
 </main>
 
 <style>
+    h1 {
+        position: fixed;
+        top: 30px;
+        text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
+        font-family: 'Cinzel', serif;
+        font-weight: bolder;
+        background: rgba(77, 21, 21, 0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 120px;
+        -webkit-text-stroke-width: 1.5px; /* largura da borda */
+        -webkit-text-stroke-color: rgb(68, 68, 68); /* cor da borda */
+        margin: 0;
+    }
+
     main {
         background: rgb(83,31,31);
         background: linear-gradient(166deg, rgba(83,31,31,1) 0%, rgba(28,0,0,1) 72%);

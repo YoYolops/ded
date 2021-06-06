@@ -11,12 +11,19 @@
 	let itemsData: Item;
 
 	let loading: boolean = true
-	$: loadingMessage = 'Consultando os Oráculos';
+	$: loadingMessage = 'Consultando os Oráculos...';
+	$: loadingWidth = 0
 
 	async function loadGameEssentials() {
+		loadingWidth += 30
 		spellsData = await API.getSpells({})
+
+		loadingWidth += 30
+		loadingMessage = "Organizando Grimórios..."
 		itemsData = await API.getItems({})
-/* 		loading = false */
+		loadingWidth = 100
+
+		loading = false
 	}
 
 	onMount(loadGameEssentials)
