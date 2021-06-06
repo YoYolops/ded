@@ -11,26 +11,7 @@
  -->
 
 <script lang="ts">
-    interface AttributesData {
-        forca: number,
-        destreza: number,
-        constituicao: number,
-        inteligencia: number,
-        sabedoria: number,
-        carisma: number
-    }
-
-    interface CharacterData {
-        characterAttributes: AttributesData,
-        raca: string,
-        classe: string
-    }
-
-    interface Possessions {
-        itemIds: Array<number>,
-        spellIds: Array<number>,
-        gold: number
-    }
+    import type { CharacterData, Possessions } from '../types';
 
     /* variaveis construidas via função: */
     let characterData: CharacterData

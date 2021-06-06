@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ItemCard from "./cards/ItemCard.svelte";
-	import ItensList from "./gameData/ItensData";
+	import ItensList from "./data/ItensData";
 	import Inventory from "./playerTools/Inventory.svelte";
 	import UserInteractionManager from "./userFirstInteractionSystem/UserInteractionManager.svelte"
 
