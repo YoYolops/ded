@@ -18,3 +18,12 @@ export interface Possessions {
     spellIds: Array<number>,
     gold: number
 }
+
+export interface SearchTags {
+    name?: string,
+    level?: string,
+    type?: string,
+    range?: string,
+    challengeRating?: string,
+    rarity?: string
+}

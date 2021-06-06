@@ -6,8 +6,6 @@
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
 
-    import itensList from '../data/ItensData';
-    import spellsData from '../data/spells.json';
     import CardSlot from '../generalComponents/CardSlot.svelte';
     import SuitedUp from '../generalComponents/SuitedUp.svelte';
     import Statistics from '../generalComponents/Statistics.svelte';
