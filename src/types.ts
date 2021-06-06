@@ -27,3 +27,26 @@ export interface SearchTags {
     challengeRating?: string,
     rarity?: string
 }
+
+export interface Item {
+    id: number,
+    name: string,
+    rarity: string,
+    imageUrl: string,
+    description: string,
+    atk: string,
+    def: string,
+    wight: string,
+    type: string,
+}
+
+export interface Spell {
+    id: number,
+    name: string,
+    level: string,
+    type: string,
+    conjurationTime: string,
+    range: string,
+    duration: string,
+    description: string
+}

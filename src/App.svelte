@@ -1,8 +1,25 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import ItemCard from "./cards/ItemCard.svelte";
 	import Inventory from "./playerTools/Inventory.svelte";
 	import UserInteractionManager from "./userFirstInteractionSystem/UserInteractionManager.svelte"
 	import API from './masterFunctions/API';
+	import type { Spell, Item } from './types';
+	import Loading from './generalComponents/Loading.svelte';
+
+	let spellsData: Spell;
+	let itemsData: Item;
+
+	let loading: boolean = true
+	$: loadingMessage = 'Consultando os Oráculos';
+
+	async function loadGameEssentials() {
+		spellsData = await API.getSpells({})
+		itemsData = await API.getItems({})
+/* 		loading = false */
+	}
+
+	onMount(loadGameEssentials)
 
 </script>
 
@@ -20,7 +37,11 @@
 	/>
 {/each} -->
 <main>
-	<UserInteractionManager />
+	{#if loading}
+		<Loading loadingDescription={loadingMessage} />
+	{:else}
+		<UserInteractionManager />
+	{/if}
 </main>
 
 <style>
