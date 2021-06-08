@@ -48,7 +48,7 @@
     }
 
     h1 {
-        text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6) ;
+        text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
         position: fixed;
         top: 15vh;
         font-family: 'Cinzel', serif;

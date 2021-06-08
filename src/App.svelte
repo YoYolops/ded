@@ -44,11 +44,7 @@
 	/>
 {/each} -->
 <main>
-	{#if loading}
-		<Loading loadingDescription={loadingMessage} />
-	{:else}
-		<UserInteractionManager />
-	{/if}
+	<UserInteractionManager />
 </main>
 
 <style>

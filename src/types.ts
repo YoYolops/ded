@@ -50,3 +50,39 @@ export interface Spell {
     duration: string,
     description: string
 }
+
+export interface Character {
+    characterName: String,
+    password: String,
+    characterData: {
+        attributes: {
+            forca: Number,
+            destreza: Number,
+            constituicao: Number,
+            inteligencia: Number,
+            sabedoria: Number,
+            carisma: Number
+        },
+        race: String, /* Raça */
+        class: String,
+    },
+    possessions: {
+        itemIds: Array<number | string>,
+        spellIds: Array<number | string>,
+        gold: Number
+    }
+}
+
+export interface Login {
+    characterName: string,
+    password: string
+}
+
+export interface BackendResponse {
+    succeeded: boolean,
+    message?: string,
+    error?: any,
+    characterName?: string,
+    characterData?: CharacterData,
+    possessions?: Possessions
+}

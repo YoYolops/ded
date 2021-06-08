@@ -1,11 +1,28 @@
 <!-- cada personagem possui um login próprio -->
 
 <script lang="ts">
+    import API from '../masterFunctions/API';
+    import type { Login } from '../types';
+    import { player } from '../stores/player';
+
     $: characterName = ''
     $: password = ''
+    $: isLogged = false
 
-    function login() {
-        void(0)
+    async function logUser() {
+        const authData: Login = {
+            characterName,
+            password
+        }
+
+        const response = await API.login(authData)
+        
+        if(response.data.succeeded) {
+            isLogged = true
+            player.set(response.data.playerData)
+        } else {
+            alert(response.data.message)
+        }
     }
 
 </script>
@@ -17,7 +34,7 @@
         <label for="password" >Senha: </label>
         <input type="password" required bind:value={password} />
     </div>
-    <button on:click={login}>Entrar</button>
+    <button on:click={logUser}>Entrar</button>
 </main>
 
 <style>

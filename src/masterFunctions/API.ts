@@ -1,10 +1,56 @@
 /* backend connection's functions */
 
 import axios from 'axios';
-import type { SearchTags } from '../types'
+import type { SearchTags, Character, Login } from '../types'
 import appConfig from './configs/config'
 
 class API {
+    async registerCharacter(object: Character) {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: appConfig.backendUrl + '/register',
+                data: object
+            })
+            return response
+
+        } catch(err) {
+            if(err.response) {
+                alert('O servidor não está respondendo')
+                console.log(err)
+            } else if(err.request) {
+                alert('O servidor respondeu sem dados')
+                console.log(err)
+            } else {
+                alert('Deu pau geral')
+                console.log(err)
+            }
+        }
+    }
+
+    async login(object: Login) {
+        try {
+            const response = await axios({
+                method: 'post',
+                url: appConfig.backendUrl + '/login',
+                data: object
+            })
+            return response
+            
+        } catch(err) {
+            if(err.response) {
+                alert('O servidor não está respondendo')
+                console.log(err)
+            } else if(err.request) {
+                alert('O servidor respondeu sem dados')
+                console.log(err)
+            } else {
+                alert('Deu pau geral')
+                console.log(err)
+            }
+        }
+    }
+
     async getSpells(object: SearchTags) {
         const { name, level, type, range } = object
         const ulrQuery = `${appConfig.backendUrl}/spells?${!!name ? `name=${name}` : ''}${!!level ? `level=${level}` : ''}${!!type ? `type=${type}` : ''}${!!range ? `range=${range}` : ''}`
