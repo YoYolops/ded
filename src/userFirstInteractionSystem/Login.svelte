@@ -17,11 +17,11 @@
 
         const response = await API.login(authData)
         
-        if(response.data.succeeded) {
+        if(response.succeeded) {
             isLogged = true
-            player.set(response.data.playerData)
+            player.set(response.playerData)
         } else {
-            alert(response.data.message)
+            alert(response.message)
         }
     }
 

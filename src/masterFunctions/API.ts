@@ -35,8 +35,8 @@ class API {
                 url: appConfig.backendUrl + '/login',
                 data: object
             })
-            return response
-            
+            return response.data
+
         } catch(err) {
             if(err.response) {
                 alert('O servidor não está respondendo')
@@ -79,6 +79,18 @@ class API {
     async getItems(object: SearchTags) {
         const { name, rarity, type } = object
         const ulrQuery = `${appConfig.backendUrl}/spells?${!!name ? `name=${name}` : ''}${!!rarity ? `rarity=${rarity}` : ''}${!!type ? `type=${type}` : ''}`
+
+        const response = await axios({
+            method: 'get',
+            url: ulrQuery
+        })
+
+        return response.data
+    }
+
+    async getRaces(object: SearchTags) {
+        const { name } = object
+        const ulrQuery = `${appConfig.backendUrl}/races?${!!name ? `name=${name}` : ''}`
 
         const response = await axios({
             method: 'get',

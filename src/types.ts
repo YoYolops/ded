@@ -86,3 +86,21 @@ export interface BackendResponse {
     characterData?: CharacterData,
     possessions?: Possessions
 }
+
+export interface Race {
+    name: string,
+    bonus: {
+        constituicao?: number,
+        sabedoria?: number,
+        forca?: number,
+        destreza?: number,
+        inteligencia?: number,
+        carisma?: string
+    },
+    expertise: {
+        weapons?: Array<string>,
+        armor?: Array<string>
+    },
+    displacement: number,
+    description: string
+}
