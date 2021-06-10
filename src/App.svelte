@@ -26,7 +26,7 @@
 		loading = false
 	}
 
-	onMount(loadGameEssentials)
+	onMount(() => loadGameEssentials)
 
 </script>
 
