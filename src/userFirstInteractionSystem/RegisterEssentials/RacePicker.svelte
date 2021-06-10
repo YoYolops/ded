@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import API from '../../masterFunctions/API';
     import type { Race } from '../../types';
-    import { races } from '../../stores/races';
+    import { races } from '../../stores/storedBackendData';
 
     $: racesArray = null
     $: displayIndex = 0

@@ -5,12 +5,18 @@
 
 <script lang="ts">
     import { fade, fly } from 'svelte/transition';
+    import { onMount } from 'svelte';
 
+    import { items, spells } from '../stores/storedBackendData';
+    import API from '../masterFunctions/API';
     import CardSlot from '../generalComponents/CardSlot.svelte';
     import SuitedUp from '../generalComponents/SuitedUp.svelte';
     import Statistics from '../generalComponents/Statistics.svelte';
     import LifeBar from '../generalComponents/LifeBar.svelte';
 
+    $: itemsArray = null;
+    $: spellsArray = null;
+    
     let visible: boolean = true;
     let showEmptySlots = true;
 
@@ -21,6 +27,35 @@
     function changeShowEmptySlots() {
         showEmptySlots = !showEmptySlots
     }
+
+    onMount(() => {
+        async function loadData() {
+            const responses = await Promise.all([
+                API.getItems({}),
+                API.getSpells({})
+            ])
+
+            let responseItem = responses[0]
+            let responseSpell = responses[1]
+
+            if(responseItem.suceeded) {
+                items.set(responseItem.items)
+                items.subscribe(currentValue => {
+                    itemsArray = currentValue}
+                )
+            } else {
+                alert('Erro ao carregar dados de itens')
+            }
+
+            if(responseSpell.succeeded) {
+                spells.set(responseSpell.spells)
+                spells.subscribe(currentValue => {
+                    spellsArray = currentValue
+                })
+            }
+        }
+        loadData()
+    })
 
 </script>
 
@@ -36,18 +71,20 @@
             <button on:click={changeShowEmptySlots}>{`${showEmptySlots ? 'Hide' : 'Show'} Empty Slots`}</button>
             <button on:click={switchOnScreenCards} >{`Show ${visible ? 'Spells' : 'Items'}`}</button>
         </div>
-        {#if visible}    
-            <div in:fly={{x: 800, duration: 500}} out:fade={{duration: 100}} class="itens">
-                {#each itensList as item}
-                    <CardSlot seal={item.id} backColor="beige" display={showEmptySlots} />
-                {/each}
-            </div>
-        {:else}
-            <div in:fly={{x: 800, duration: 500}} out:fade={{duration: 100}} class="feiticos" style={`display: ${!visible ? 'flex' : 'none'}`} >
-                {#each spellsData.spellsData as spell}
-                    <CardSlot seal={spell.id} backColor="#93b8bf" display={showEmptySlots} />
-                {/each}
-            </div>
+        {#if !!itemsArray && !!spellsArray}
+            {#if visible}    
+                <div in:fly={{x: 800, duration: 500}} out:fade={{duration: 100}} class="itens">
+                    {#each itemsArray as item}
+                        <CardSlot seal={item.id} backColor="beige" display={showEmptySlots} />
+                    {/each}
+                </div>
+            {:else}
+                <div in:fly={{x: 800, duration: 500}} out:fade={{duration: 100}} class="feiticos" style={`display: ${!visible ? 'flex' : 'none'}`} >
+                    {#each spellsArray as spell}
+                        <CardSlot seal={spell.id} backColor="#93b8bf" display={showEmptySlots} />
+                    {/each}
+                </div>
+            {/if}
         {/if}
     </section>
 </main>
