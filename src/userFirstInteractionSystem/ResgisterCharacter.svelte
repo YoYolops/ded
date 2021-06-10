@@ -11,11 +11,11 @@
  -->
 
 <script lang="ts">
-
+    import RacePicker from './RegisterEssentials/RacePicker.svelte'
 </script>
 
 <main>
-
+    <RacePicker />
 </main>
 
 <style>
