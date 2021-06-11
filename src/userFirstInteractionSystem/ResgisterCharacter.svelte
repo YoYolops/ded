@@ -13,6 +13,7 @@
 <script lang="ts">
     import RacePicker from './RegisterEssentials/RacePicker.svelte';
     import NickPassPicker from './RegisterEssentials/NickPassPicker.svelte';
+    import CharacterSheet from './RegisterEssentials/CharacterSheet.svelte';
     import API from '../masterFunctions/API';
 
     $: registerStage = 0
@@ -53,7 +54,7 @@
             possessions
         }
         const response = await API.registerCharacter(sendData)
-        
+
     }
 </script>
 
@@ -82,7 +83,7 @@
             <button class="previousStage" on:click={() => {changeStage('previous')}}>
                 Voltar
             </button>
-            <h2>????</h2>
+            <h2>Distribua seus pontos</h2>
             <button class="nextStage" on:click={() => {changeStage('next')}}>
                 Próximo
             </button>
@@ -93,7 +94,7 @@
     {:else if registerStage === 1}
         <RacePicker />
     {:else if registerStage === 2}
-        <div></div>
+        <CharacterSheet />>
     {/if}
 </main>
 
@@ -103,6 +104,7 @@
         flex: 1;
         flex-direction: column;
         width: 100%;
+        height: inherit;
     }
 
     .stageController {
