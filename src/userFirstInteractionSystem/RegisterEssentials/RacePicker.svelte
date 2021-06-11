@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import API from '../../masterFunctions/API';
-    import type { Race } from '../../types';
     import { races } from '../../stores/storedBackendData';
 
     $: racesArray = null
@@ -47,7 +46,7 @@
             {#each racesArray as race, index}
                 {#if displayIndex === index}
                     <h1>{race.name}</h1>
-                    <div class="info">
+                    <div class="info" >
                         <div class="bonus">
                             <h2>Bônus:</h2>
                             {#each Object.keys(race.bonus) as bonusName}
@@ -110,8 +109,10 @@
         color: #aaa;
         font-family: 'Cinzel', serif;
         text-shadow: 7px 7px 3px rgba(0, 0, 0, 0.6);
-        -webkit-text-stroke-width: .8px; /* largura da borda */
+        -webkit-text-stroke-width: .6px; /* largura da borda */
         -webkit-text-stroke-color: rgb(77, 21, 21); /* cor da borda */
+        font-weight: bold;
+        font-size: 35px;
     }
 
     h2 {

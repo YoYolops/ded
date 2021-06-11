@@ -102,10 +102,12 @@
         -webkit-text-stroke-width: .4px; /* largura da borda */
         -webkit-text-stroke-color: rgb(68, 68, 68); /* cor da borda */
         background: transparent;
-        border: none;
-        border-top: 2px solid rgb(68, 68, 68);
+        border: 2px solid rgb(68, 68, 68);
+        border-radius: 10px;
         color: #aaa;
         cursor: pointer;
+        width: 50%;
+        align-self: center;
     }
 
     .switcher:active {

@@ -1,4 +1,4 @@
-type AttributesData = {
+export type AttributesData = {
     forca: number,
     destreza: number,
     constituicao: number,
