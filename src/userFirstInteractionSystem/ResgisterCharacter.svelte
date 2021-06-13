@@ -16,8 +16,6 @@
     import CharacterSheet from './RegisterEssentials/CharacterSheet.svelte';
     import API from '../masterFunctions/API';
 
-    $: registerStage = 0
-
     let characterName = ''
     let password = ''
     let characterData = {
@@ -38,6 +36,9 @@
         gold: 0
     }
 
+    $: registerStage = 0
+    $: bonuses = {}
+
     function changeStage(previousOrNext) {
         if(previousOrNext === 'next') {
             registerStage += 1
@@ -53,8 +54,8 @@
             characterData,
             possessions
         }
-        const response = await API.registerCharacter(sendData)
-
+        console.log(sendData)
+        /* const response = await API.registerCharacter(sendData) */
     }
 </script>
 
@@ -92,10 +93,11 @@
     {#if registerStage === 0}
         <NickPassPicker bind:characterName={characterName} bind:password={password}/>
     {:else if registerStage === 1}
-        <RacePicker />
+        <RacePicker bind:selectedRace={characterData['race']} bind:bonuses={bonuses} />
     {:else if registerStage === 2}
-        <CharacterSheet />>
+        <CharacterSheet characterBonuses={bonuses} />>
     {/if}
+    <button on:click={registerCharacter}>testando envio</button>
 </main>
 
 <style>

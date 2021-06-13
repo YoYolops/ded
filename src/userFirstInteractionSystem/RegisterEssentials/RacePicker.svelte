@@ -1,10 +1,13 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
     import API from '../../masterFunctions/API';
     import { races } from '../../stores/storedBackendData';
 
     $: racesArray = null
     $: displayIndex = 0
+
+    export let selectedRace = ''
+    export let bonuses;
 
     function nextRace() {
         if((displayIndex + 1) < racesArray.length) {
@@ -32,17 +35,28 @@
                 races.subscribe(currentValue => {
                     racesArray = currentValue
                 })
+                selectedRace = racesArray[displayIndex]
             } else {
                 alert('Não conseguimos contatar os oráculos...')
             }
         }
         loadRaces()
     })
+
+    onDestroy(() => {
+        console.log('destroy')
+        /* Garante que a última raça em tela foi selecionada */
+        function destroy() {
+            selectedRace = racesArray[displayIndex].name
+            bonuses = racesArray[displayIndex].bonus
+        }
+        destroy()
+    })
 </script>
 
 <main>
     <section class="upperSection">
-        {#if !!racesArray}
+        {#if !!racesArray} <!-- garante que o html a seguir so vai ser carregado quando os dados vierem do servidor, evitando erros -->
             {#each racesArray as race, index}
                 {#if displayIndex === index}
                     <h1>{race.name}</h1>

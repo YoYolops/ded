@@ -1,17 +1,16 @@
 <script lang="ts">
-import { fix_and_destroy_block } from "svelte/internal";
+    import { onMount } from "svelte";
 
-
-
+    export let characterBonuses;
     $: availablePoints = 72;
 
     $: skills = [
-        { name: 'Força', value: 0 },
-        { name: 'Destreza', value: 0 },
-        { name: 'Constituição', value: 0 },
-        { name: 'Inteligência', value: 0 },
-        { name: 'Sabedoria', value: 0 },
-        { name: 'Carisma', value: 0 }
+        { name: 'Força', ASCIIname: 'forca', value: 0 },
+        { name: 'Destreza', ASCIIname: 'destreza', value: 0 },
+        { name: 'Constituição', ASCIIname: 'constituicao', value: 0 },
+        { name: 'Inteligência', ASCIIname: 'inteligencia', value: 0 },
+        { name: 'Sabedoria', ASCIIname: 'sabedoria', value: 0 },
+        { name: 'Carisma', ASCIIname: 'carisma', value: 0 }
     ]
 
     $: expertises = [
@@ -48,6 +47,20 @@ import { fix_and_destroy_block } from "svelte/internal";
     function modifierCalculator(baseAttribute: number) {
         return Math.floor(baseAttribute / 2) - 5
     }
+
+    onMount(() => {
+        /* garante que os bonus de perícia da raça escolhida sejam aplicadas à ficha do personagem */
+        skills = skills.map( skill => {
+            if(!!characterBonuses[skill.ASCIIname]) {
+                return {
+                    name: skill.name,
+                    value: skill.value + characterBonuses[skill.ASCIIname]
+                }
+            } else {
+                return skill
+            }
+        })
+    })
 </script>
 
 <main>
