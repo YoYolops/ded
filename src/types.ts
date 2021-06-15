@@ -10,7 +10,8 @@ export type AttributesData = {
 export interface CharacterData {
     characterAttributes: AttributesData,
     raca: string,
-    classe: string
+    classe: string,
+    experience: string
 }
 
 export interface Possessions {
@@ -52,24 +53,26 @@ export interface Spell {
 }
 
 export interface Character {
-    characterName: String,
-    password: String,
+    characterName: string,
+    password?: string,
     characterData: {
         attributes: {
-            forca: Number,
-            destreza: Number,
-            constituicao: Number,
-            inteligencia: Number,
-            sabedoria: Number,
-            carisma: Number
+            forca: number,
+            destreza: number,
+            constituicao: number,
+            inteligencia: number,
+            sabedoria: number,
+            carisma: number
         },
-        race: String, /* Raça */
-        class: String,
+        race: string, /* Raça */
+        class: string,
+        experience: number,
+        level: number
     },
     possessions: {
         itemIds: Array<number | string>,
         spellIds: Array<number | string>,
-        gold: Number
+        gold: number
     }
 }
 
